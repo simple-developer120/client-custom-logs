@@ -1,4 +1,4 @@
-package com.test.fabric;
+package com.test;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.util.Identifier;
