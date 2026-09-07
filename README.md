@@ -13,7 +13,7 @@ A lightweight Minecraft Fabric mod that provides a separate custom log format fo
 
 ## How It Works
 
-The mod creates a dedicated Log4j2 logger named `custom`.
+The mod creates a dedicated Log4j2 logger named `yourid`.
 
 Example:
 ```java
@@ -84,7 +84,7 @@ This avoids potential conflicts caused by multiple file appenders attempting to 
 
 Create your logger:
 ```java
-package com.test;
+package com.mymod;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.util.Identifier;
