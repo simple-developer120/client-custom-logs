@@ -1,5 +1,6 @@
 A lightweight Minecraft Fabric mod that provides a separate custom log format for your mod's messages without modifying Minecraft's default latest.log format.
 
+![image](https://orbitcraft.1a2.workers.dev/upload/image.png)
 ## Features
 
 - Custom log format for your mod.
