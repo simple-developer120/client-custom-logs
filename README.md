@@ -17,7 +17,7 @@ The mod creates a dedicated Log4j2 logger named `custom`.
 
 Example:
 ```java
-    public static final String MOD_ID = "custom";
+    public static final String MOD_ID = "yourid";
     public static final Logger LOGGER = LogManager.getLogger(MOD_ID);
 ```
 You can then write messages using:
