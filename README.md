@@ -123,6 +123,7 @@ public class MyMod implements ClientModInitializer {
 }
 ```
 Output:
+
     [15:20:09] [Custom Format/INFO]: Loading Mod...
     [15:20:10] [Custom Format/INFO]: Hello from my mod!
 
