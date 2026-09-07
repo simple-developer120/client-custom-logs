@@ -118,12 +118,12 @@ public class MyMod implements ClientModInitializer {
             LOGGER.error("[Custom Format] Failed to load log4j2.xml: " + e.getMessage());
             e.printStackTrace();
         }
-        LOGGER.info("Mod Loaded successfully!");
+        LOGGER.info("Hello from my mod!");
     }
 }
 ```
 Output:
-
+    [15:20:09] [Custom Format/INFO]: Loading Mod...
     [15:20:10] [Custom Format/INFO]: Hello from my mod!
 
 ## Requirements
