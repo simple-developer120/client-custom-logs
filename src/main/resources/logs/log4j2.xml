@@ -31,7 +31,7 @@
         </Queue>
         
         <!-- File for your custom logs -->
-        <RollingRandomAccessFile name="yourid" fileName="logs/latest.log" filePattern="logs/%d{yyyy-MM-dd}-%i.log.gz">
+        <RollingRandomAccessFile name="youridFile" fileName="logs/latest.log" filePattern="logs/%d{yyyy-MM-dd}-%i.log.gz">
             <PatternLayout pattern="[%d{HH:mm:ss}] [Custom Format/%level]: %msg{nolookups}%n" />
             <Policies>
                 <TimeBasedTriggeringPolicy />
