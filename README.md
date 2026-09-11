@@ -122,10 +122,74 @@ public class MyMod implements ClientModInitializer {
     }
 }
 ```
+src/main/resources/logs/log4j2.xml
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Appenders>
+        <!-- Console for vanilla/mod logs -->
+        <Console name="SysOut" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{HH:mm:ss}] [%t/%level]: %msg{nolookups}%n" />
+        </Console>
+        
+        <!-- GUI console for vanilla/mod logs -->
+        <Queue name="ServerGuiConsole">
+            <PatternLayout pattern="[%d{HH:mm:ss} %level]: %msg{nolookups}%n" />
+        </Queue>
+        
+        <!-- File for vanilla/mod logs -->
+        <RollingRandomAccessFile name="File" fileName="logs/latest.log" filePattern="logs/%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="[%d{HH:mm:ss}] [%t/%level]: %msg{nolookups}%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <OnStartupTriggeringPolicy />
+            </Policies>
+        </RollingRandomAccessFile>
+        
+        <!-- Console for your custom logs -->
+        <Console name="mymodConsole" target="SYSTEM_OUT">
+            <PatternLayout pattern="[%d{HH:mm:ss}] [MyMod/%level]: %msg{nolookups}%n" />
+        </Console>
+        
+        <!-- GUI console for your custom logs -->
+        <Queue name="mymodGuiConsole">
+            <PatternLayout pattern="[%d{HH:mm:ss}] [MyMod/%level]: %msg{nolookups}%n" />
+        </Queue>
+        
+        <!-- File for your custom logs -->
+        <RollingRandomAccessFile name="mymodFile" fileName="logs/latest.log" filePattern="logs/%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="[%d{HH:mm:ss}] [MyMod/%level]: %msg{nolookups}%n" />
+            <Policies>
+                <TimeBasedTriggeringPolicy />
+                <OnStartupTriggeringPolicy />
+            </Policies>
+        </RollingRandomAccessFile>
+    </Appenders>
+    
+    <Loggers>
+        <!-- logger with your custom format -->
+        <Logger name="mymod" level="info" additivity="false">
+            <AppenderRef ref="mymodConsole"/>
+            <AppenderRef ref="mymodGuiConsole"/>
+            <AppenderRef ref="mymodFile"/>
+        </Logger>
+        
+        <!-- Root logger for all other mods -->
+        <Root level="info">
+            <filters>
+                <MarkerFilter marker="NETWORK_PACKETS" onMatch="DENY" onMismatch="NEUTRAL" />
+            </filters>
+            <AppenderRef ref="SysOut"/>
+            <AppenderRef ref="ServerGuiConsole"/>
+            <AppenderRef ref="File"/>
+        </Root>
+    </Loggers>
+</Configuration>
+```
 Output:
 
-    [15:20:09] [Custom Format/INFO]: Loading Mod...
-    [15:20:10] [Custom Format/INFO]: Hello from my mod!
+    [15:20:09] [MyMod/INFO]: Loading Mod...
+    [15:20:10] [MyMod/INFO]: Hello from my mod!
 
 ## Requirements
 
