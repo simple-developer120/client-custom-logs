@@ -84,6 +84,7 @@ This avoids potential conflicts caused by multiple file appenders attempting to 
 ## Usage
 
 Create your logger:
+src/main/resources/java/MyMod.java
 ```java
 package com.mymod;
 
